@@ -8,13 +8,25 @@ function addproblem(req,res,next){
     }
 }
 function getProblem(req,res){
-
+    try {
+        throw new notImplemented("getproblem");
+    } catch (error) {
+        next(error);
+    }
 }
 function deleteProbem(req,res){
-
+    try {
+        throw new notImplemented("deleteProblem");
+    } catch (error) {
+        next(error);
+    }
 }
 function updateProblem(req,res){
-
+    try {
+        throw new notImplemented("updateProblem");
+    } catch (error) {
+        next(error);
+    }
 }
 function pingCheck(req,res){
     return res.json({msg:"PingPong"});
