@@ -1,5 +1,11 @@
-function addproblem(req,res){
-
+const notImplemented = require("../errors/unimplemented.error");
+const {StatusCodes}=require("http-status-codes")
+function addproblem(req,res,next){
+    try {
+        throw new notImplemented("addproblem");
+    } catch (error) {
+        next(error);
+    }
 }
 function getProblem(req,res){
 
