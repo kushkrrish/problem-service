@@ -14,9 +14,18 @@ class problemService{
         const problem= await this.problemRepository.createProblem(problemData);
         return problem
     }
-    async getProblem(){
+    async getProblems(){
         const problems= await this.problemRepository.getProblems();
         return problems;
+    }
+    async getProblem(id){
+        const problem=await this.problemRepository.getProblem(id);
+        console.log(problem);
+        return problem;
+    }
+    async deleteProblem(id){
+        const problem=await this.problemRepository.deleteProblem(id);
+        return problem;
     }
 }
 

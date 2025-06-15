@@ -12,7 +12,7 @@ function sanitization(markdownContent){
 
     //sanitized html
     const sanitizedHtml=sanitizerHtml(convertedHtml,{
-        allowedTags:sanitizerHtml.defaults.allowedTags
+        allowedTags:sanitizerHtml.defaults.allowedTags.concat('img')
     });
 
     const sanitizedMarkdown=turndownService.turndown(sanitizedHtml);

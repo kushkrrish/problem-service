@@ -16,12 +16,12 @@ async function addproblem(req,res,next){
         next(error);
     }
 }
-async function getProblems(req,res){
+async function getProblems(req,res,next){
     try {
-        const problems=await problemService.getProblem();
+        const problems=await problemService.getProblems();
         return res.status(StatusCodes.OK).json({
             success:true,
-            message:"successfully created problem",
+            message:"successfully get problem",
             err:{},
             data:problems
         })
@@ -29,9 +29,31 @@ async function getProblems(req,res){
         next(error);
     }
 }
-function deleteProbem(req,res){
+
+async function getProblem(req,res,next) {
     try {
-        throw new notImplemented("deleteProblem");
+        console.log(req.params.id);
+        const problem=await problemService.getProblem(req.params.id);
+        console.log(problem,"in controllr");
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"successfully get problem",
+            err:{},
+            data:problem
+        })
+    } catch (error) {
+        next(error);
+    }
+}
+async function deleteProbem(req,res,next){
+    try {
+        const problem=await problemService.deleteProblem(req.params.id);
+        return res.status(StatusCodes.OK).json({
+            success:true,
+            message:"successfully get problem",
+            err:{},
+            data:problem
+        })
     } catch (error) {
         next(error);
     }
@@ -51,5 +73,6 @@ module.exports={
     getProblems,
     deleteProbem,
     updateProblem,
+    getProblem,
     pingCheck
 }
