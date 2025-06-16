@@ -20,7 +20,7 @@ class problemService{
     }
     async getProblem(id){
         const problem=await this.problemRepository.getProblem(id);
-        console.log(problem);
+        
         return problem;
     }
     async deleteProblem(id){
