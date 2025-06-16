@@ -32,7 +32,7 @@ async function getProblems(req,res,next){
 
 async function getProblem(req,res,next) {
     try {
-        console.log(req.params.id);
+        
         const problem=await problemService.getProblem(req.params.id);
         console.log(problem,"in controllr");
         return res.status(StatusCodes.OK).json({
@@ -45,7 +45,7 @@ async function getProblem(req,res,next) {
         next(error);
     }
 }
-async function deleteProbem(req,res,next){
+async function deleteProblem(req,res,next){
     try {
         const problem=await problemService.deleteProblem(req.params.id);
         return res.status(StatusCodes.OK).json({
@@ -71,7 +71,7 @@ function pingCheck(req,res){
 module.exports={
     addproblem,
     getProblems,
-    deleteProbem,
+    deleteProblem,
     updateProblem,
     getProblem,
     pingCheck
